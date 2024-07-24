@@ -2,23 +2,17 @@ package io.sevendiko.medalyst.service;
 
 import io.sevendiko.medalyst.model.CalculatorRequest;
 import io.sevendiko.medalyst.model.CalculatorResponse;
-import jakarta.validation.*;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Set;
 
 @Service
-@Validated
 public class CalculatorService implements ICalculatorService {
 
     private static final BigDecimal HUNDRED_PERCENT = new BigDecimal(100);
 
     @Override
     public CalculatorResponse calculate(final CalculatorRequest calculatorRequest) {
-
         if (calculatorRequest.vat() != null) {
             return calculateFromVat(calculatorRequest.vat(), calculatorRequest.vatPercentage().getValue());
         }
