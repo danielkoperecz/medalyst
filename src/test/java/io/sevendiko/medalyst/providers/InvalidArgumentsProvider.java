@@ -1,4 +1,4 @@
-package io.sevendiko.medalyst.unit;
+package io.sevendiko.medalyst.providers;
 
 import io.sevendiko.medalyst.model.CalculatorRequest;
 import io.sevendiko.medalyst.model.VatPercentage;

@@ -1,4 +1,4 @@
-package io.sevendiko.medalyst.unit;
+package io.sevendiko.medalyst.providers;
 
 import io.sevendiko.medalyst.model.CalculatorRequest;
 import io.sevendiko.medalyst.model.CalculatorResponse;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ArgumentsProvider;
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
-public class NetCalculatorArgumentProvider implements ArgumentsProvider {
+public class GrossCalculatorArgumentProvider implements ArgumentsProvider {
 
     @Override
     public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
@@ -18,7 +18,7 @@ public class NetCalculatorArgumentProvider implements ArgumentsProvider {
                 Arguments.of(
                         CalculatorRequest
                                 .builder()
-                                .net(new BigDecimal(110))
+                                .gross(new BigDecimal(132))
                                 .vatPercentage(VatPercentage.TWENTY_PERCENTAGE)
                                 .build(),
                         CalculatorResponse
@@ -31,27 +31,27 @@ public class NetCalculatorArgumentProvider implements ArgumentsProvider {
                 Arguments.of(
                         CalculatorRequest
                                 .builder()
-                                .net(new BigDecimal(110))
+                                .gross(new BigDecimal(100))
                                 .vatPercentage(VatPercentage.THIRTEEN_PERCENTAGE)
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal("14.30"))
-                                .net(new BigDecimal("110.00"))
-                                .gross(new BigDecimal("124.30"))
+                                .vat(new BigDecimal("11.50"))
+                                .net(new BigDecimal("88.50"))
+                                .gross(new BigDecimal("100.00"))
                                 .build()
                 ),
                 Arguments.of(
                         CalculatorRequest
                                 .builder()
-                                .net(new BigDecimal(110))
+                                .gross(new BigDecimal(132))
                                 .vatPercentage(VatPercentage.TEN_PERCENTAGE)
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal(11))
-                                .net(new BigDecimal(110))
-                                .gross(new BigDecimal(121))
+                                .vat(new BigDecimal(12))
+                                .net(new BigDecimal(120))
+                                .gross(new BigDecimal(132))
                                 .build()
                 )
         );
