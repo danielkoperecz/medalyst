@@ -26,9 +26,9 @@ public class CalculatorServiceTest {
 
         CalculatorResponse actualResponse = calculatorService.calculate(request);
 
-        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.HALF_UP));
+        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
     }
 
     @ParameterizedTest
@@ -38,9 +38,9 @@ public class CalculatorServiceTest {
 
         CalculatorResponse actualResponse = calculatorService.calculate(request);
 
-        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.HALF_UP));
+        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
     }
 
     @ParameterizedTest
@@ -50,8 +50,8 @@ public class CalculatorServiceTest {
 
         CalculatorResponse actualResponse = calculatorService.calculate(request);
 
-        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.HALF_UP));
-        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.HALF_UP));
+        assertEquals(response.net().setScale(2, RoundingMode.HALF_UP), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.HALF_UP), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.HALF_UP), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
     }
 }

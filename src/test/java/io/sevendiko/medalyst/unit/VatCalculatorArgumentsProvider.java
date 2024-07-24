@@ -27,6 +27,32 @@ public class VatCalculatorArgumentsProvider implements ArgumentsProvider {
                                 .net(new BigDecimal(110))
                                 .gross(new BigDecimal(132))
                                 .build()
+                ),
+                Arguments.of(
+                        CalculatorRequest
+                                .builder()
+                                .vat(new BigDecimal(22))
+                                .vatPercentage(VatPercentage.THIRTEEN_PERCENTAGE)
+                                .build(),
+                        CalculatorResponse
+                                .builder()
+                                .vat(new BigDecimal("15.19"))
+                                .net(new BigDecimal("116.81"))
+                                .gross(new BigDecimal("132"))
+                                .build()
+                ),
+                Arguments.of(
+                        CalculatorRequest
+                                .builder()
+                                .vat(new BigDecimal(22))
+                                .vatPercentage(VatPercentage.TEN_PERCENTAGE)
+                                .build(),
+                        CalculatorResponse
+                                .builder()
+                                .vat(new BigDecimal(12))
+                                .net(new BigDecimal(120))
+                                .gross(new BigDecimal(132))
+                                .build()
                 )
         );
     }

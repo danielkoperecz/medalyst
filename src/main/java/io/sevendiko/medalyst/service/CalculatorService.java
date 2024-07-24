@@ -27,7 +27,7 @@ public class CalculatorService implements ICalculatorService {
     }
 
     private CalculatorResponse calculateFromVat(final BigDecimal vat, final Integer vatRate) {
-        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.HALF_UP);
+        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.UNNECESSARY);
         BigDecimal net = vat.divide(vatRateDecimal, 2, RoundingMode.HALF_UP);
         BigDecimal gross = net.add(vat);
 
@@ -39,7 +39,7 @@ public class CalculatorService implements ICalculatorService {
     }
 
     private CalculatorResponse calculateFromNet(final BigDecimal net, final Integer vatRate) {
-        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.HALF_UP);
+        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.UNNECESSARY);
         BigDecimal vat = net.multiply(vatRateDecimal);
         BigDecimal gross = net.add(vat);
 
@@ -51,7 +51,7 @@ public class CalculatorService implements ICalculatorService {
     }
 
     private CalculatorResponse calculateFromGross(final BigDecimal gross, final Integer vatRate) {
-        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.HALF_UP);
+        BigDecimal vatRateDecimal = new BigDecimal(vatRate).divide(HUNDRED_PERCENT, 2, RoundingMode.UNNECESSARY);
         BigDecimal net = gross.divide(vatRateDecimal.add(BigDecimal.ONE), RoundingMode.HALF_UP);
         BigDecimal vat = gross.subtract(net);
 
