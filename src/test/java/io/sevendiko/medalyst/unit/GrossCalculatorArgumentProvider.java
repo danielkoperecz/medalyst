@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ArgumentsProvider;
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
-public class GrossCalculatorArgumentResolver implements ArgumentsProvider {
+public class GrossCalculatorArgumentProvider implements ArgumentsProvider {
 
     @Override
     public Stream<? extends Arguments> provideArguments(ExtensionContext context) {

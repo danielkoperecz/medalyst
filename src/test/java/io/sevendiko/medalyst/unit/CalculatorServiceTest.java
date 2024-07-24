@@ -32,7 +32,7 @@ public class CalculatorServiceTest {
     }
 
     @ParameterizedTest
-    @ArgumentsSource(GrossCalculatorArgumentResolver.class)
+    @ArgumentsSource(GrossCalculatorArgumentProvider.class)
     void testCalculateFromGross(CalculatorRequest request, CalculatorResponse response) {
         when(calculatorService.calculate(request)).thenReturn(response);
 
@@ -44,7 +44,7 @@ public class CalculatorServiceTest {
     }
 
     @ParameterizedTest
-    @ArgumentsSource(NetCalculatorArgumentResolver.class)
+    @ArgumentsSource(NetCalculatorArgumentProvider.class)
     void testCalculateFromNet(CalculatorRequest request, CalculatorResponse response) {
         when(calculatorService.calculate(request)).thenReturn(response);
 
