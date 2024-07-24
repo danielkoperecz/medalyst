@@ -36,9 +36,9 @@ public class NetCalculatorArgumentProvider implements ArgumentsProvider {
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal("15.19"))
-                                .net(new BigDecimal("116.81"))
-                                .gross(new BigDecimal("132"))
+                                .vat(new BigDecimal("14.30"))
+                                .net(new BigDecimal("110.00"))
+                                .gross(new BigDecimal("124.30"))
                                 .build()
                 ),
                 Arguments.of(
@@ -49,9 +49,9 @@ public class NetCalculatorArgumentProvider implements ArgumentsProvider {
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal(12))
-                                .net(new BigDecimal(120))
-                                .gross(new BigDecimal(132))
+                                .vat(new BigDecimal(11))
+                                .net(new BigDecimal(110))
+                                .gross(new BigDecimal(121))
                                 .build()
                 )
         );

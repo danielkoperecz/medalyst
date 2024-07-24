@@ -31,14 +31,14 @@ public class GrossCalculatorArgumentProvider implements ArgumentsProvider {
                 Arguments.of(
                         CalculatorRequest
                                 .builder()
-                                .gross(new BigDecimal(132))
+                                .gross(new BigDecimal(100))
                                 .vatPercentage(VatPercentage.THIRTEEN_PERCENTAGE)
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal("15.19"))
-                                .net(new BigDecimal("116.81"))
-                                .gross(new BigDecimal("132"))
+                                .vat(new BigDecimal("11.50"))
+                                .net(new BigDecimal("88.50"))
+                                .gross(new BigDecimal("100.00"))
                                 .build()
                 ),
                 Arguments.of(

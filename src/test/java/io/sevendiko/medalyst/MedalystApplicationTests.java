@@ -2,8 +2,12 @@ package io.sevendiko.medalyst;
 
 import io.sevendiko.medalyst.controller.IMedalystCalculatorController;
 import io.sevendiko.medalyst.model.CalculatorRequest;
+import io.sevendiko.medalyst.model.CalculatorResponse;
 import io.sevendiko.medalyst.service.ICalculatorService;
+import io.sevendiko.medalyst.unit.GrossCalculatorArgumentProvider;
 import io.sevendiko.medalyst.unit.InvalidArgumentsProvider;
+import io.sevendiko.medalyst.unit.NetCalculatorArgumentProvider;
+import io.sevendiko.medalyst.unit.VatCalculatorArgumentsProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
@@ -11,8 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.math.RoundingMode;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class MedalystApplicationTests {
@@ -26,6 +32,39 @@ class MedalystApplicationTests {
     @Test
     public void contextLoads() {
         assertNotNull(applicationContext);
+    }
+
+    @ParameterizedTest
+    @ArgumentsSource(VatCalculatorArgumentsProvider.class)
+    void testCalculateFromVat(CalculatorRequest request, CalculatorResponse response) {
+
+        CalculatorResponse actualResponse = calculatorController.calculate(request).getBody();
+
+        assertEquals(response.net().setScale(2, RoundingMode.UNNECESSARY), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.UNNECESSARY), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.UNNECESSARY), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
+    }
+
+    @ParameterizedTest
+    @ArgumentsSource(GrossCalculatorArgumentProvider.class)
+    void testCalculateFromGross(CalculatorRequest request, CalculatorResponse response) {
+
+        CalculatorResponse actualResponse = calculatorController.calculate(request).getBody();
+
+        assertEquals(response.net().setScale(2, RoundingMode.UNNECESSARY), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.UNNECESSARY), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.UNNECESSARY), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
+    }
+
+    @ParameterizedTest
+    @ArgumentsSource(NetCalculatorArgumentProvider.class)
+    void testCalculateFromNet(CalculatorRequest request, CalculatorResponse response) {
+
+        CalculatorResponse actualResponse = calculatorController.calculate(request).getBody();
+
+        assertEquals(response.net().setScale(2, RoundingMode.UNNECESSARY), actualResponse.net().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.vat().setScale(2, RoundingMode.UNNECESSARY), actualResponse.vat().setScale(2, RoundingMode.UNNECESSARY));
+        assertEquals(response.gross().setScale(2, RoundingMode.UNNECESSARY), actualResponse.gross().setScale(2, RoundingMode.UNNECESSARY));
     }
 
     @ParameterizedTest

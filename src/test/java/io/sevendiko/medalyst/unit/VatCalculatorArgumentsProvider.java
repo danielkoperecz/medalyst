@@ -36,9 +36,9 @@ public class VatCalculatorArgumentsProvider implements ArgumentsProvider {
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal("15.19"))
-                                .net(new BigDecimal("116.81"))
-                                .gross(new BigDecimal("132"))
+                                .vat(new BigDecimal("22.00"))
+                                .net(new BigDecimal("169.23"))
+                                .gross(new BigDecimal("191.23"))
                                 .build()
                 ),
                 Arguments.of(
@@ -49,9 +49,9 @@ public class VatCalculatorArgumentsProvider implements ArgumentsProvider {
                                 .build(),
                         CalculatorResponse
                                 .builder()
-                                .vat(new BigDecimal(12))
-                                .net(new BigDecimal(120))
-                                .gross(new BigDecimal(132))
+                                .vat(new BigDecimal("22.00"))
+                                .net(new BigDecimal("220.00"))
+                                .gross(new BigDecimal("242.00"))
                                 .build()
                 )
         );
